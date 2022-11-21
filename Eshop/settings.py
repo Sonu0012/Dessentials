@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'adminlte3',
+     # Optional: Django admin theme (must be before django.contrib.admin)
+    'adminlte3_theme',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,7 +59,7 @@ ROOT_URLCONF = 'Eshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,7 +124,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_DIRS = [
-    os.path.join(BASE_DIR,'uploads')
+    os.path.join(BASE_DIR,'static')
 ]
 MEDIA_URL = "/image/download/"
 MEDIA_ROOT = BASE_DIR
+
+STATIC_ROOT = os.path.join(BASE_DIR,'static')

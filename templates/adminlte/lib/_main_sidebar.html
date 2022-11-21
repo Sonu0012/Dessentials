@@ -1,0 +1,51 @@
+{% load adminlte_helpers %}
+{%load static %}
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Londrina+Shadow&display=swap" rel="stylesheet">
+    
+</head>
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar sidebar-dark elevation-4" style="background-color:#00B86F;">
+     <!-- Brand Logo -->
+    {% block logo %}
+        <a href="/" class="brand-link">
+            
+            {% block logo_text %}<span style = "font-family: 'Londrina Shadow', cursive; font-size:40px; font-weight: bold; color:white;">DESSENTIALS</span>{% endblock %}
+        </a>
+    {% endblock %}
+    <!-- sidebar: style can be found in sidebar.less -->
+    <div class="sidebar">
+        <!-- Sidebar user panel -->
+        {% block user_panel %}
+        <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{% avatar_url size=90 %}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info" style="color:white; font-family: 'Lilita One', cursive; font-size:22px;">
+          {% firstof request.user.get_full_name request.user.username %}
+        </div>
+      </div>
+        {% endblock %}
+
+        {% block form %}{% endblock %}
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        {% block nav_links_ul %}
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            {% block nav_links_outer %}
+            <li class="nav-header" style="color:white; font-family: 'Lilita One', cursive; font-size:16px;">{% block nav_heading %}MAIN NAVIGATION{% endblock %}</li>
+
+            {% block nav_links %}
+           
+            {% endblock nav_links %}
+            {% endblock nav_links_outer %}
+            </ul>
+            </nav>
+        {% endblock nav_links_ul %}
+    </div>
+    <!-- /.sidebar -->
+</aside>
